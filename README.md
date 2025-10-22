@@ -20,15 +20,13 @@ The flow checks whether the item already exists in BC:
 
 ## ⚙️ Architecture
 
-```mermaid
+
 flowchart TD
     A[🔁 Recurrence Trigger<br>(Weekly)] --> B[🗄️ Get Rows from SQL]
     B --> C[🔎 Filter Array<br>CL_OpenPriceItem = 1]
     C --> D[🔁 For Each SQL Record]
-
     D --> E[🔍 Find Item in BC]
     E --> F{Item Exists?}
-
     F -->|Yes| G1[🧩 Update Item]
     G1 --> G2[🧩 Update General Info]
     G2 --> G3[🧩 Update Price & Sales Info]
@@ -43,7 +41,6 @@ flowchart TD
     G10 --> G12[💰 Update Cost & Posting Info]
     G12 --> G13[🐾 Update PetSave Info]
     G13 --> G14[✅ Update SQL Record (ScynTime)]
-
     F -->|No| H1[🆕 Create Item in BC]
     H1 --> H2[🧩 Update General Info]
     H2 --> H3[🧩 Update Price Info]
