@@ -3,6 +3,7 @@
 This repository documents the **Power Automate Flow** that synchronizes item data from a SQL Server table into **Microsoft Dynamics 365 Business Central (BC)**, using multiple custom API pages (`Item General`, `Item Price Sales`, `Item UoM`, `Item Purch Xfer Setup`, etc.).
 
 ---
+<img width="454" height="854" alt="{6B8E0AEB-5F5B-488C-AFDF-160115881CA0}" src="https://github.com/user-attachments/assets/e54f3297-52c8-459b-ad5a-07c58b53994a" />
 
 ## 📦 Overview
 
@@ -217,7 +218,6 @@ Specializing in **Business Central, Power Platform, Azure AI, SQL Integration**
 > 💡 *This Flow provides a robust, modular structure for Business Central integration via Power Automate, using clean separation of API layers and SQL-driven mapping.*
 
 Flow Result:
-<img width="454" height="854" alt="{6B8E0AEB-5F5B-488C-AFDF-160115881CA0}" src="https://github.com/user-attachments/assets/030a70cf-42c4-40e3-8870-2f22b669796a" />
 
 
 
