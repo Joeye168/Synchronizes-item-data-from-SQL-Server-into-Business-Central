@@ -213,16 +213,11 @@ Specializing in **Business Central, Power Platform, Azure AI, SQL Integration**
 * [ ] Automate dependency tracking for BC API version updates
 * [ ] Add Power BI dashboard for Flow sync statistics
 
----
 
 > 💡 *This Flow provides a robust, modular structure for Business Central integration via Power Automate, using clean separation of API layers and SQL-driven mapping.*
 
 Flow Result:
-<img width="454" height="854" alt="{6B8E0AEB-5F5B-488C-AFDF-160115881CA0}" src="https://github.com/user-attachments/assets/4cb01bd9-3918-4b65-85b2-1ebef258a71a" />
+<img width="454" height="854" alt="{6B8E0AEB-5F5B-488C-AFDF-160115881CA0}" src="https://github.com/user-attachments/assets/030a70cf-42c4-40e3-8870-2f22b669796a" />
 
 
----
 
-是否希望我帮你再自动生成一个对应的 **`flow-architecture.png`**（基于上面的 mermaid 图导出为 PNG 图片），  
-你就可以直接放进 GitHub 的 `/images` 目录中？
-```
