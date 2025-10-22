@@ -217,7 +217,6 @@ Specializing in **Business Central, Power Platform, Azure AI, SQL Integration**
 
 > 💡 *This Flow provides a robust, modular structure for Business Central integration via Power Automate, using clean separation of API layers and SQL-driven mapping.*
 
-Flow Result:
 
 
 
