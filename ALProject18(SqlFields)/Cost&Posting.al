@@ -88,11 +88,46 @@ tableextension 53120 ItemCostPostingExt extends Item
             Caption = 'Export Tariff Code';
             DataClassification = ToBeClassified;
         }
+        field(53224; "CurrencyCode"; Code[10])
+        {
+            Caption = 'Currency Code';
+            TableRelation = Currency.Code;
+            DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            begin
+                UpdateCurrencyRate();
+            end;
+        }
+
+        field(53225; "CurrencyRate"; Decimal)
+        {
+            Caption = 'Currency Rate';
+            DecimalPlaces = 0 : 5;
+            DataClassification = ToBeClassified;
+        }
 
 
 
 
     }
+    local procedure UpdateCurrencyRate()
+    var
+        CurrExchRate: Record "Currency Exchange Rate";
+    begin
+        if Rec.CurrencyCode = '' then begin
+            Rec.CurrencyRate := 0;
+            exit;
+        end;
+
+        CurrExchRate.SetRange("Currency Code", Rec.CurrencyCode);
+        CurrExchRate.SetFilter("Starting Date", '..%1', WorkDate());
+
+        if CurrExchRate.FindLast() then
+            Rec.CurrencyRate := CurrExchRate."Relational Exch. Rate Amount"
+        else
+            Rec.CurrencyRate := 0;
+    end;
 }
 pageextension 53120 ItemCardCostPostingExt extends "Item Card"
 {
@@ -148,9 +183,17 @@ pageextension 53120 ItemCardCostPostingExt extends "Item Card"
                     Caption = '🟫 Tax Flags';
                     field("PST?"; Rec."PST?") { ApplicationArea = All; }
                 }
+
+                group("🔵 Currency Rate")
+                {
+                    Caption = '🔵 Currency Rate';
+                    field(CurrencyCode; Rec.CurrencyCode) { ApplicationArea = All; }
+                    field(CurrencyRate; Rec.CurrencyRate) { ApplicationArea = All; }
+                }
             }
         }
     }
+
 }
 
 page 53121 "Item Cost Posting API"
@@ -253,6 +296,10 @@ page 53121 "Item Cost Posting API"
             field(exportTariffCode; Rec."Export Tariff Code")
             {
                 Caption = 'Export Tariff Code';
+            }
+            field(currencyCode; Rec."CurrencyCode")
+            {
+                Caption = 'Currency Code';
             }
         }
     }

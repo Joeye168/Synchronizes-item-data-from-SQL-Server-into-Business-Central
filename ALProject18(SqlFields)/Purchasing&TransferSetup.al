@@ -119,6 +119,8 @@ page 53211 "Item Purch Xfer Setup ListPart"
                     ApplicationArea = All;
                     ToolTip = 'Currency code for the purchase prices.';
                 }
+
+
             }
         }
     }
@@ -189,6 +191,7 @@ page 53210 "Item Purch Xfer Setup API"
                 field("PurchUnits2"; Rec."PurchUnits2") { }
                 field("Disc2"; Rec."Disc%2") { }
                 field("CurrencyCode"; Rec."CurrencyCode") { }
+
             }
         }
     }
